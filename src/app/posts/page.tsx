@@ -23,9 +23,10 @@ export default function Posts() {
             const res = await axios.get(
                 `https://demo.modifyed.xyz/wp-json/wp/v2/posts?page=${page}&per_page=5`
             );
+                        const totalPages = parseInt(res.headers['x-wp-totalpages'], 10);
             if (res.data.length > 0) {
                 setPosts((prev) => [...prev, ...res.data]);
-                setHasMore(true);
+                 setHasMore(page < totalPages);
             } else {
                 setHasMore(false);
             }
