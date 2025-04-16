@@ -72,7 +72,7 @@ export default function Posts() {
                                 </h2>
                                 <div
                                     className="text-gray-600 text-sm line-clamp-4"
-                                    dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
+                                    dangerouslySetInnerHTML={{ __html: post.excerpt.rendered.split(" ").slice(0,15).join(" ") }}
                                 />
                             </div>
                             <Link
